@@ -22,11 +22,8 @@ public class Tweet {
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.id = jsonObject.getLong("id");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+        tweet.timeStamp = TimeFormatter.getTimeDifference(createdAt);
         return tweet;
-    }
-
-    public static String getFormattedTimestamp() {
-        return TimeFormatter.getTimeDifference(createdAt);
     }
 
     public static List<Tweet> fromJsonArray(JSONArray jsonArray) throws JSONException {
