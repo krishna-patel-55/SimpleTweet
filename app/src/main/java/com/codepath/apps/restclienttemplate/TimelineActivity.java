@@ -56,7 +56,7 @@ public class TimelineActivity extends AppCompatActivity {
         adapter = new TweetsAdapter(this, tweets);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //Recycler view setup: layout manager and adapter
-        rvTweets.setLayoutManager(new LinearLayoutManager(this));
+        rvTweets.setLayoutManager(layoutManager);
         rvTweets.setAdapter(adapter);
 
         scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
@@ -76,7 +76,7 @@ public class TimelineActivity extends AppCompatActivity {
         client.getNextPageOfTweets(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
-                Log.i(TAG, "onSuccess for loadMoreData " + json.toString());
+                Log.i(TAG, "onSuccess for loadMoreData! " + json.toString());
                 // 2. Deserialize and construct new model objects from the API response
                 JSONArray jsonArray = json.jsonArray;
                 try{
@@ -100,7 +100,7 @@ public class TimelineActivity extends AppCompatActivity {
         client.getHomeTimeline(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
-                Log.i(TAG, "onSuccess " + json.toString());
+                Log.i(TAG, "onSuccess! " + json.toString());
                 JSONArray jsonArray = json.jsonArray;
                 try {
                     adapter.clear();
