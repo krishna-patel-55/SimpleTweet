@@ -6,10 +6,12 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
-        <item name="colorPrimary">#ff1da1f2</item>
+        <item name="colorPrimary">#5F99CF</item>
     </style>
     <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">#FFFFFF</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
+
     </style>
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
@@ -65,6 +66,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvBody;
         TextView tvScreenName;
         TextView tvTimestamp;
+        TextView tvUsername;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -73,13 +75,16 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvBody = itemView.findViewById(R.id.tvBody);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvTimestamp = itemView.findViewById(R.id.tvTimestamp);
+            tvUsername = itemView.findViewById(R.id.tvUsername);
         }
 
         public void bind(Tweet tweet) {
             tvBody.setText(tweet.body);
-            tvScreenName.setText(tweet.user.screenName);
-            Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
+            tvScreenName.setText("@"+tweet.user.screenName);
+            int radius = 100;
+            Glide.with(context).load(tweet.user.profileImageUrl).transforms(new RoundedCorners(radius)).into(ivProfileImage);
             tvTimestamp.setText(tweet.timeStamp);
+            tvUsername.setText(tweet.user.name);
         }
     }
 }

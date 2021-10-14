@@ -10,9 +10,12 @@
     <application
         android:name=".TwitterApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/simple_tweet"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".ComposeActivity"
+            android:exported="true" />
         <activity
             android:name=".TimelineActivity"
             android:exported="true" />
@@ -36,6 +39,10 @@
                     android:scheme="@string/intent_scheme" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
